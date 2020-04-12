@@ -1,0 +1,102 @@
+{
+  "name": "aca-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AnimalCrossingArt.com server",
+  "main": "server/platform.js",
+  "repository": {
+    "url": "https://github.com/seancannon/aca-server.git",
+    "type": "git"
+  },
+  "authors": "Sean Cannon <alienwebguy@gmail.com>",
+  "contributors": [
+    {
+      "name": "Sean Cannon",
+      "email": "alienwebguy@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "alien-node-api-utils": "^0.1.2",
+    "alien-node-list-utils": "0.0.1",
+    "alien-node-q-utils": "^0.x.x",
+    "alien-node-redis-utils": "^1.4.4",
+    "alien-node-winston-utils": "^0.x.x",
+    "atob": "^1.1.x",
+    "bcrypt": "3.0.3",
+    "body-parser": "^1.14.x",
+    "btoa": "^1.1.x",
+    "change-case": "^2.3.0",
+    "config": "^1.8.x",
+    "connect-multiparty": "^2.0.0",
+    "connect-redis": "^3.0.1",
+    "cookie": "^0.3.1",
+    "csurf": "~1.8.x",
+    "csvtojson": "1.0.3",
+    "cuid": "^1.3.8",
+    "del": "^1.1.x",
+    "dotenv-safe": "^4.0.3",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "eslint-plugin-ramda": "^2.5.1",
+    "express": "~4.9.x",
+    "express-validator": "^2.9.x",
+    "goby": "^1.1.x",
+    "helmet": "0.13.x",
+    "image-type": "^2.1.0",
+    "imagemagick": "^0.1.3",
+    "jasmine-reporters": "^2.2.1",
+    "jsonwebtoken": "8.x.x",
+    "mime-types": "^2.1.25",
+    "moment": "^2.10.x",
+    "node-dir": "^0.1.17",
+    "o-validator": "^1.x.x",
+    "prettycats": "*",
+    "promise-parallel-throttle": "3.3.0",
+    "pug": "^2.0.3",
+    "q": "^2.x.x",
+    "ramda": "^0.x.x",
+    "ramda-adjunct": "^2.11.0",
+    "ratelimiter": "~2.1.x",
+    "read-chunk": "^1.0.1",
+    "read-multiple-files": "^1.1.1",
+    "redis": "^2.8.x",
+    "serve-favicon": "~2.1.x",
+    "shortid": "^2.2.8",
+    "stream-reduce": "^1.0.3",
+    "tmp": "^0.0.31",
+    "uuid": "^3.2.1",
+    "vinyl-paths": "^1.0.x",
+    "winston": "^2.4.x",
+    "xlsx": "^0.13.2",
+    "yargs": "*"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.x",
+    "deep-diff": "^0.3.3",
+    "dupertest-patched": "*",
+    "eslint": "^6.8.0",
+    "faker": "^4.1.0",
+    "jasmine": "2.4.1",
+    "nyc": "^13.1.0",
+    "redis-mock": "^0.5.x",
+    "redistub": "^2.1.2"
+  },
+  "resolutions": {
+    "ansi-styles": "^3.2.0"
+  },
+  "scripts": {
+    "test": "bash ./run/env/test/run.sh",
+    "demo": "bash ./run/env/demo/run.sh",
+    "demo-stop": "bash ./run/env/demo/stop.sh",
+    "demo-restart": "bash ./run/env/demo/restart.sh",
+    "docker": "bash ./scripts/docker.sh",
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/seancannon/aca-server/issues"
+  },
+  "homepage": "https://animalcrossingart.com"
+}

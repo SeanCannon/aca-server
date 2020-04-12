@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+/.env
+_assets
+bower_components
+node_modules
+coverage
+dist
+spec/support/logs/*
+dump.rdb
+tmp
+.nyc_output

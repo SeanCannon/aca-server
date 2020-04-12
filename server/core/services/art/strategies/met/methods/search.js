@@ -1,0 +1,19 @@
+'use strict';
+
+const { validateForSearch } = require('../../../helpers/validateArtData');
+
+const search = ({ logger, axios, axiosOptions }) => data => {
+
+  validateForSearch(data);
+
+  const endpoint = `https://collectionapi.metmuseum.org/public/collection/v1/search?material=Paintings|Canvas&q=All`;
+
+  return axios.get(endpoint, axiosOptions)
+    .then(({ total, objectIDs : itemIds }) => ({ total, itemIds }))
+    .catch(err => {
+      logger.error(err);
+      throw err;
+    });
+};
+
+module.exports = search;
