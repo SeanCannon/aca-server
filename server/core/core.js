@@ -1,34 +1,33 @@
 'use strict';
 
 // Dependencies
-const path                 = require('path'),
-      config               = require('config'),
-      bodyParser           = require('body-parser'),
-      multipart            = require('connect-multiparty'),
-      logger               = require('./services/log/Log'),
-      apiUtils             = require('alien-node-api-utils'),
+const path          = require('path'),
+      config        = require('config'),
+      bodyParser    = require('body-parser'),
+      multipart     = require('connect-multiparty'),
+      logger        = require('./services/log/Log'),
+      apiUtils      = require('alien-node-api-utils'),
 
       // Express app
-      express              = require('express'),
-      app                  = express(),
+      express       = require('express'),
+      app           = express(),
 
       // Middleware
-      allowCors            = require('./middleware/allowCors'),
-      secureHeaders        = require('./middleware/secureHeaders'),
+      allowCors     = require('./middleware/allowCors'),
+      secureHeaders = require('./middleware/secureHeaders'),
 
       // Routes
-      ping                 = (req, res) => res.send('pong ' + new Date().toISOString()),
-      unknown              = (req, res) => res.status(404).json({ data : { code : 1234, message : 'unknown' } }),
-      health               = require('./routes/health'),
-      pageRoutes           = require('./routes/index'),
-      lensMetricsApiRoutes = require('./routes/api/art');
+      ping          = (req, res) => res.send('pong ' + new Date().toISOString()),
+      unknown       = (req, res) => res.status(404).json({ data : { code : 1234, message : 'unknown' } }),
+      health        = require('./routes/health'),
+      artApiRoutes  = require('./routes/api/art');
 
 const clientGlobals = `
 if (!window) {
   window = {};
 }
 window.ACA = { 
-  errors        : ${ JSON.stringify(config.errors) }
+  errors : ${ JSON.stringify(config.errors) }
 };`;
 
 const globals = (req, res) => res.set('Content-Type', 'application/javascript').send(clientGlobals);
@@ -60,11 +59,10 @@ app.use(allowCors);
 app.use(secureHeaders);
 
 // Routing
-app.use('/', pageRoutes);
 app.use('/ping', ping);
 app.use('/health', health);
 app.use('/globals', globals);
-app.use('/api/v1/lensMetrics', lensMetricsApiRoutes);
+app.use('/v1/art', artApiRoutes);
 app.use('*', unknown);
 
 app.use(logUncaughtExceptions);

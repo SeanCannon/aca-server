@@ -56,10 +56,16 @@ If the client is set to `www.animalcrossingart.test` then set the API to `http:/
 # Deployment
 Please see the `.circleci/config.yml` file for CircleCI build config.
 
-# Production
+## Demo
+```bash
+pm2 start ./run/env/demo/startRemoteDocker.sh -n docker-suite
+pm2 start ./run/env/demo/run.sh --name api
+```
+
+## Production
 Run the following commands on a production instance (from project root), assuming a `.env` file exists in the project 
 root which adheres to the `.env.example` recommendations. 
 
 ```bash
-sudo pm2 start ./run/env/production/run.sh --name platform
+pm2 start ./run/env/production/run.sh --name api
 ```
