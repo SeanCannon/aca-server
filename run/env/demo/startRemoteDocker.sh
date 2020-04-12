@@ -4,6 +4,9 @@ set -a
 . ./run/env/demo/.env
 set +a
 
-rm -rf ./tmp
-mkdir -p -m 0755 ./tmp/env/demo
+set -a
+. ./.env
+set +a
+
+docker-compose down
 docker-compose -f docker-compose-remote.yml up
