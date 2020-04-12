@@ -45,6 +45,13 @@ require('dotenv-safe').config({
   path : path.resolve(__dirname, `../../run/env/${process.env.NODE_ENV}/.env`)
 });
 
+// View rendering
+app.set('views', path.resolve(__dirname, 'views'));
+app.set('view engine', 'pug');
+app.get('/views/*', (req, res) => {
+  res.render(path.resolve(app.get('views'), req.params[0]));
+});
+
 // Body parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
