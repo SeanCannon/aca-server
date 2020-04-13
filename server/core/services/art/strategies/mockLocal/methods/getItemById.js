@@ -8,8 +8,8 @@ const { validateForGetItemById } = require('../../../helpers/validateArtData');
 
 const itemData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../mockData/item.json')));
 
-const getItemById = ({ logger }) => data => new Promise((resolve, reject) => {
-  Promise.resolve(data)
+const getItemById = ({ logger }) => id => new Promise((resolve, reject) => {
+  Promise.resolve({ id })
     .then(validateForGetItemById)
     .then(R.prop('id'))
     .then(R.propOr({}, R.__, itemData))

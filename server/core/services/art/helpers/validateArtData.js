@@ -1,11 +1,13 @@
 'use strict';
 
-const V        = require('o-validator'),
-      validate = require('../../../utils/validatePayload')('artData'),
-      prr      = require('prettycats');
+const R   = require('ramda'),
+      V   = require('o-validator'),
+      prr = require('prettycats');
+
+const validate = require('../../../utils/validatePayload')('artData');
 
 const validateForSearch = validate({
-  query : prr.isJSON
+  query : R.is(Object)
 });
 
 const validateForGetItemById = validate({

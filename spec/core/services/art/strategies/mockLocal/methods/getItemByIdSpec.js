@@ -29,9 +29,7 @@ describe('getItem', () => {
   });
 
   it('responds with data when using a known itemId', done => {
-    getItemById({
-      id : KNOWN_TEST_ID
-    })
+    getItemById(KNOWN_TEST_ID)
       .then(res => {
         expect(res).toEqual(FAKE_DATA);
         done();
@@ -40,9 +38,7 @@ describe('getItem', () => {
   });
 
   it('responds with an empty data set when given an unknown itemId', done => {
-    getItemById({
-      id : FAKE_UNKNOWN_ID
-    })
+    getItemById(FAKE_UNKNOWN_ID)
       .then(res => {
         expect(res).toEqual({});
         done();
@@ -51,9 +47,7 @@ describe('getItem', () => {
   });
 
   it('rejects when given a malformed itemId', done => {
-    getItemById({
-      id : KNOWN_TEST_ID + ''
-    })
+    getItemById(KNOWN_TEST_ID + '')
       .then(done.fail)
       .catch(err => {
         expect(err).toEqual(commonMocks.illegalParamErr('artData', 'id'));
@@ -62,19 +56,10 @@ describe('getItem', () => {
   });
 
   it('rejects when missing itemId', done => {
-    getItemById({})
-      .then(done.fail)
-      .catch(err => {
-        expect(err).toEqual(commonMocks.missingParamErr('artData', 'id'));
-        done();
-      });
-  });
-
-  it('rejects when no params given', done => {
     getItemById()
       .then(done.fail)
       .catch(err => {
-        expect(err.message).toEqual('Cannot read property \'id\' of undefined');
+        expect(err).toEqual(commonMocks.missingParamErr('artData', 'id'));
         done();
       });
   });

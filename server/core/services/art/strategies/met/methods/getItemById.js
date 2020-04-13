@@ -4,17 +4,14 @@ const R = require('ramda');
 
 const { validateForGetItemById } = require('../../../helpers/validateArtData');
 
-const getItemById = ({ logger, axios, axiosOptions }) => data => {
-  validateForGetItemById(data);
+const getItemById = ({ logger, axios, axiosOptions }) => id => {
+  validateForGetItemById({ id });
 
-  const { itemId } = data;
-
-  const endpoint = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${itemId}`;
+  const endpoint = `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`;
 
   return axios.get(endpoint, axiosOptions)
     .then(R.prop('data'))
     .then(({
-     objectID : id,
      title,
      primaryImage,
      primaryImageSmall

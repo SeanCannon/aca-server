@@ -2,7 +2,7 @@
 
 const cacheUtils = require('../../../../utils/cache');
 
-const CACHE_EXPIRE_ONE_WEEK = 60 * 60 * 24 * 7;
+const CACHE_EXPIRE_ONE_WEEK_IN_SECONDS = 60 * 60 * 24 * 7;
 
 const makeCacheKey = (...args) => `api.aca.${ args.filter(a=>a).join(':') }`;
 
@@ -14,7 +14,7 @@ const setCacheObject = item => {
   const CACHE_KEY_BY_ID = makeCacheKey('getItemById', id);
 
   return Promise.resolve(item)
-    .then(cacheUtils.setItem(CACHE_KEY_BY_ID, CACHE_EXPIRE_ONE_WEEK));
+    .then(cacheUtils.setItem(CACHE_KEY_BY_ID, CACHE_EXPIRE_ONE_WEEK_IN_SECONDS));
 };
 
 const setCacheArray = (...args) => arr => Promise.resolve(arr)

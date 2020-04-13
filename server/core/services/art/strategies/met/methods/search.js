@@ -4,7 +4,7 @@ const R = require('ramda');
 
 const { validateForSearch } = require('../../../helpers/validateArtData');
 
-const search = ({ logger, axios, axiosOptions }) => data => {
+const search = ({ logger, axios, axiosOptions }) => (data={}) => {
 
   validateForSearch(data);
 
