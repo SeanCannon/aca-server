@@ -27,6 +27,9 @@ if (!window) {
   window = {};
 }
 window.ACA = { 
+  env    : {
+    API_ROOT : ${process.env.API_ROOT}
+  },
   errors : ${ JSON.stringify(config.errors) }
 };`;
 
