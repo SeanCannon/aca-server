@@ -26,7 +26,7 @@ router.get('/:strategy/search', ensureAuthorized, (req, res) => {
     res,
     logger({ strategy, query }),
     'search',
-    () => search({ ArtSvc, logger })(query)
+    () => search({ ArtSvc, logger })({ query })
   );
 });
 
