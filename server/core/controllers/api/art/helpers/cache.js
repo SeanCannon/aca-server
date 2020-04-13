@@ -18,6 +18,6 @@ const setCacheObject = item => {
 };
 
 const setCacheArray = (...args) => arr => Promise.resolve(arr)
-  .then(cacheUtils.setItem(makeCacheKey.apply(null, args), CACHE_EXPIRE_ONE_WEEK));
+  .then(cacheUtils.setItem(makeCacheKey.apply(null, args), CACHE_EXPIRE_ONE_WEEK_IN_SECONDS));
 
 module.exports = { setCacheObject, setCacheArray, getCache };
