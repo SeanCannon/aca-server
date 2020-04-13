@@ -17,6 +17,7 @@ module.exports = report => {
 
     return new Promise(resolve => {
 
+      redisClient.auth(redisConfig('password'));
       redisClient.on('error', err => {
         resolve(failed(report)(err));
       });
