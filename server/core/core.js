@@ -26,7 +26,7 @@ const clientGlobals = `
 if (!window) {
   window = {};
 }
-window.ACA = { 
+window.ACA = {
   errors : ${ JSON.stringify(config.errors) }
 };`;
 
