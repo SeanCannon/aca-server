@@ -14,7 +14,12 @@ const validateForGetItemById = validate({
   id : V.required(prr.isNumber)
 });
 
+const validateForConvert = validate({
+  source : R.is(Object)
+});
+
 module.exports = {
   validateForSearch,
-  validateForGetItemById
+  validateForGetItemById,
+  validateForConvert
 };

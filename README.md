@@ -10,6 +10,7 @@ This service has the following external dependencies
 * [NodeJS](#markdown-header-nodejs)
 * [Redis](#markdown-header-redis)
 * [Nginx](#markdown-header-nginx)
+* [ImageMagick](#markdown-header-imagemagick)
 
 
 ### Environment Variables
