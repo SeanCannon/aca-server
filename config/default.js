@@ -11,7 +11,7 @@ const config = {
       R.map(R.partialRight(parseInt, [10])),
       R.split(','),
       R.concat('')
-    )(R.pathOr('1337,1338,1339', ['env', 'NODE_PORTS'], process)),
+    )(R.pathOr('1137,1138,1139', ['env', 'NODE_PORTS'], process)),
     corsWhitelist : {
       patternString : 'animalcrossingart.[com]',
       flags         : 'i'
