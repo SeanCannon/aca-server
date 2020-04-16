@@ -4,7 +4,7 @@ const config = {
 
   server : {
     corsWhitelist : {
-      patternString : 'localhost|lvh|animalcrossingart.[test|review|com]',
+      patternString : 'animalcrossingart.[test|com]',
       flags         : 'i'
     }
   },

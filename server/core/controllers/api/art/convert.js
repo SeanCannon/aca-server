@@ -12,6 +12,7 @@ const _convert = ({ logger }) => data => {
     .then(R.path(['source', 'path']))
     .then(readFileSync)
     .then(convert)
+    .then(R.tap(console.log))
     .catch(err => {
       logger.error(err);
       throw err;

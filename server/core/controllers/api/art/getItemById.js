@@ -1,10 +1,12 @@
 'use strict';
 
-const { setCacheObject, getCache } = require('./helpers/cache');
+const { setCacheObject, getCache, throwWhenMissing } = require('./helpers/cache');
 
 const _getItemById = ({ ArtSvc : { getItemById }, logger }) => id => {
-  return getCache('getItemById', id)
+  const cacheKey = 'getItemById';
+  return getCache(cacheKey, id)
     .then(JSON.parse)
+    .then(throwWhenMissing(cacheKey))
     .catch(() => Promise.resolve(id)
       .then(getItemById({ logger }))
       .then(setCacheObject)

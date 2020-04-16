@@ -49,6 +49,23 @@ router.get('/:strategy/item/:itemId', ensureAuthorized, (req, res) => {
   );
 });
 
+// https://api.animalcrossingart/com/v1/art/met/items
+router.post('/:strategy/items', ensureAuthorized, (req, res) => {
+
+  const { itemIds }  = req.body;
+  const { strategy } = req.params;
+
+  const ArtSvc = require('../../services/art/Art')(strategy);
+
+  apiUtils.respondWithErrorHandling(
+    req,
+    res,
+    logger({ strategy, itemIds }),
+    'getItemsByIds',
+    () => Promise.all((itemIds || []).map(getItemById({ ArtSvc, logger })))
+  );
+});
+
 // https://api.animalcrossingart/com/v1/art/convert
 router.post('/convert', ensureAuthorized, (req, res) => {
 

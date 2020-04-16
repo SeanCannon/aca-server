@@ -200,7 +200,7 @@ alien-node-q-utils@^0.x.x:
     q "^2.0.x"
     ramda "^0.17.x"
 
-alien-node-redis-utils@^1.4.4:
+alien-node-redis-utils@^1.4.5:
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/alien-node-redis-utils/-/alien-node-redis-utils-1.4.5.tgz#4bc8b26feef3021d153eb67fd8d59b1f9e804c9b"
   integrity sha512-OtufNCwqOh06Pqagud5n6x4AAuXNN4sODFeKeJtq2Fx0LntZRCeiKEXUun2xkm4TRvvE32jkBE6rHBv1/4CJ1Q==
@@ -3826,10 +3826,10 @@ redis@^2.8.0, redis@^2.8.x:
     redis-commands "^1.2.0"
     redis-parser "^2.6.0"
 
-redistub@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/redistub/-/redistub-2.1.2.tgz#29961724fa634fb152144cb3d8864f1ab97284fb"
-  integrity sha512-rhn2Oq4t71QbcoEdZSF9QJJa9ZHKP4iGRm6CK+0nufTS8xHpT4JgUQdU8/9EycJNvRJOXiHD6rQl1wNqMCqt4A==
+redistub@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/redistub/-/redistub-2.1.3.tgz#eb27542a95d44d9ffb4ed6816a3028e6323c7b2c"
+  integrity sha512-HSdp42X5htqz9TgY3ANaeiCoydHsvj57Q6Q2tIb4BC7piPaJQsPWxbkUR3ZR/KGG3pdK1bmo5A4QA2k/gkE6cg==
 
 referrer-policy@1.2.0:
   version "1.2.0"
