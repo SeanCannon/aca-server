@@ -11,11 +11,10 @@ const convert = source => {
   return new Promise((resolve, reject) => {
     try {
       const options = [
-        '-alpha set',
-        '-background none',
-        '-channel A',
-        '-depth 16',
         '-resize 32x32',
+        '-background transparent',
+        '-gravity center',
+        '-extent 32x32',
         '-',
         'PNG:-'
       ];
