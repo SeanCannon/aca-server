@@ -8,7 +8,9 @@ const search = ({ logger, axios, axiosOptions }) => (data) => {
 
   validateForSearch(data);
 
-  const { departmentId=9, q='All' } = data.query;
+  const EUROPEAN_PAINTINGS_DEPARTMENT_ID = 11;
+
+  const { departmentId=EUROPEAN_PAINTINGS_DEPARTMENT_ID, q='All' } = data.query;
 
   const endpoint = `https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=${departmentId}&q=${q}`;
 
