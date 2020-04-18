@@ -15,7 +15,7 @@ const getItemById = ({ logger }) => id => new Promise((resolve, reject) => {
     .then(R.propOr({}, R.__, itemData))
     .then(resolve)
     .catch(err => {
-      logger.error(err);
+      logger().error(err);
       reject(err);
     });
 });

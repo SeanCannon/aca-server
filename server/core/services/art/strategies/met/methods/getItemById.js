@@ -22,7 +22,7 @@ const getItemById = ({ logger, axios, axiosOptions }) => id => {
       primaryImageSmall
     }))
     .catch(err => {
-      logger.error(err);
+      logger().error(err);
       throw err;
     });
 };

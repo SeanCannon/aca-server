@@ -12,7 +12,7 @@ const search = ({ logger }) => (data={}) => new Promise((resolve, reject) => {
     .then(validateForSearch)
     .then(() => resolve(searchData))
     .catch(err => {
-      logger.error(err);
+      logger().error(err);
       reject(err);
     });
 });
