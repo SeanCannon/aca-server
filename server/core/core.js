@@ -1,26 +1,27 @@
 'use strict';
 
 // Dependencies
-const path          = require('path'),
-      config        = require('config'),
-      bodyParser    = require('body-parser'),
-      multipart     = require('connect-multiparty'),
-      logger        = require('./services/log/Log'),
-      apiUtils      = require('alien-node-api-utils'),
+const path            = require('path'),
+      config          = require('config'),
+      bodyParser      = require('body-parser'),
+      multipart       = require('connect-multiparty'),
+      logger          = require('./services/log/Log'),
+      apiUtils        = require('alien-node-api-utils'),
 
       // Express app
-      express       = require('express'),
-      app           = express(),
+      express         = require('express'),
+      app             = express(),
 
       // Middleware
-      allowCors     = require('./middleware/allowCors'),
-      secureHeaders = require('./middleware/secureHeaders'),
+      allowCors       = require('./middleware/allowCors'),
+      secureHeaders   = require('./middleware/secureHeaders'),
 
       // Routes
-      ping          = (req, res) => res.send('pong ' + new Date().toISOString()),
-      unknown       = (req, res) => res.status(404).json({ data : { code : 1234, message : 'unknown' } }),
-      health        = require('./routes/health'),
-      artApiRoutes  = require('./routes/api/art');
+      ping            = (req, res) => res.send('pong ' + new Date().toISOString()),
+      unknown         = (req, res) => res.status(404).json({ data : { code : 1234, message : 'unknown' } }),
+      health          = require('./routes/health'),
+      artApiRoutes    = require('./routes/api/art'),
+      renderApiRoutes = require('./routes/api/render');
 
 const clientGlobals = `
 if (!window) {
@@ -70,6 +71,7 @@ app.use('/ping', ping);
 app.use('/health', health);
 app.use('/globals', globals);
 app.use('/v1/art', artApiRoutes);
+app.use('/v1/render', renderApiRoutes);
 app.use('*', unknown);
 
 app.use(logUncaughtExceptions);

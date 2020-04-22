@@ -6,8 +6,7 @@ const express  = require('express'),
       apiUtils = require('../../utils/api');
 
 const getItemById = require('../../controllers/api/art/getItemById'),
-      search      = require('../../controllers/api/art/search'),
-      convert     = require('../../controllers/api/art/convert');
+      search      = require('../../controllers/api/art/search');
 
 const maybeParseIntFromPath = require('../../controllers/api/_helpers/maybeParseIntFromPath');
 
@@ -65,20 +64,5 @@ router.post('/:strategy/items', ensureAuthorized, (req, res) => {
     () => Promise.all((itemIds || []).map(getItemById({ ArtSvc, logger })))
   );
 });
-
-// https://api.animalcrossingart/com/v1/art/convert
-router.post('/convert', ensureAuthorized, (req, res) => {
-
-  const { files : { source } } = req;
-
-  apiUtils.respondWithErrorHandling(
-    req,
-    res,
-    logger({ source }),
-    'convert',
-    () => convert({ logger })({ source })
-  );
-});
-
 
 module.exports = router;

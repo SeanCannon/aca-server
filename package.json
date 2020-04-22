@@ -18,6 +18,7 @@
   "dependencies": {
     "alien-node-api-utils": "^0.1.2",
     "alien-node-list-utils": "0.0.1",
+    "alien-node-mysql-utils": "^0.5.8",
     "alien-node-q-utils": "^0.x.x",
     "alien-node-redis-utils": "^1.4.5",
     "alien-node-winston-utils": "^0.x.x",
@@ -34,6 +35,8 @@
     "csurf": "~1.8.x",
     "csvtojson": "1.0.3",
     "cuid": "^2.1.8",
+    "db-migrate": "0.11.6",
+    "db-migrate-mysql": "^1.1.10",
     "del": "^1.1.x",
     "dotenv-safe": "^4.0.3",
     "eslint-loader": "^2.1.2",

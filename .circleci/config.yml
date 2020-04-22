@@ -73,7 +73,7 @@ jobs:
     - run:
         name: Deploy to Dev Server
         command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then rsync -arhvz --exclude .git/ -e "ssh -o StrictHostKeyChecking=no" --progress \
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then rsync -arhvz --exclude .git/ --exclude renders/*.png -e "ssh -o StrictHostKeyChecking=no" --progress \
             ./ root@198.199.97.18:/var/www/aca/aca-server/; fi
           if [ "${CIRCLE_BRANCH}" == "master" ]; then ssh -o StrictHostKeyChecking=no root@198.199.97.18 'pushd /var/www/aca/aca-server && pm2 restart api --update-env'; fi
 

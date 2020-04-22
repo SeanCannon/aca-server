@@ -1,6 +1,9 @@
 'use strict';
 
-const { spawn } = require('child_process');
+const fs        = require('fs'),
+      uuidv4    = require('uuid/v4'),
+      path      = require('path'),
+      { spawn } = require('child_process');
 
 /**
  * convert
@@ -18,13 +21,30 @@ const convert = source => {
         '-',
         'PNG:-'
       ];
+
       const convertProcess = spawn('convert', options.join(' ').split(' '));
-      const buffer = [];
+      const resBuffer      = [];
+      const image          = `${uuidv4()}.png`;
+      const fileStream     = fs.createWriteStream(path.resolve(__dirname, `../../../renders/${image}`));
 
-      convertProcess.stdout.on('data', (data) => buffer.push(Buffer.from(data)));
-      convertProcess.stdout.on('end', () => resolve(Buffer.concat(buffer)));
+      convertProcess.stdout.on('data', data => {
+        fileStream.write(data);
+        console.log('data!', { data })
+        resBuffer.push(Buffer.from(data));
+      });
 
-      convertProcess.stderr.on('data', (data) => reject(data.toString()));
+      convertProcess.stdout.on('end', () => {
+        fileStream.end();
+        console.log('end!')
+        resolve({ image, buffer : Buffer.concat(resBuffer) });
+      });
+
+      convertProcess.stderr.on('data', data => {
+        console.log('error!!', { data })
+        fileStream.end();
+        reject(data.toString());
+      });
+
       convertProcess.stdin.end(source);
 
     } catch (err) {

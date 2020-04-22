@@ -7,6 +7,7 @@ node_modules
 coverage
 dist
 spec/support/logs/*
+renders/*.png
 dump.rdb
 tmp
 .nyc_output

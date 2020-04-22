@@ -1,7 +1,8 @@
 'use strict';
 
 const R       = require('ramda'),
-      winston = require('winston');
+      winston = require('winston'),
+      mysqlUtils = require('alien-node-mysql-utils')(null);
 
 const config = {
   server  : {
@@ -40,6 +41,21 @@ const config = {
     host     : R.pathOr('localhost', ['env', 'REDIS_HOST'],     process),
     port     : R.pathOr(6379,        ['env', 'REDIS_PORT'],     process),
     password : R.pathOr('',          ['env', 'REDIS_PASSWORD'], process)
+  },
+
+  db : {
+    mysql   : {
+      poolConfig : {
+        connectionLimit    : R.pathOr(30,          ['env', 'CORE_DB_CONNECTION_LIMIT'], process),
+        host               : R.pathOr('localhost', ['env', 'CORE_DB_HOST'],             process),
+        port               : R.pathOr(3306,        ['env', 'CORE_DB_PORT'],             process),
+        user               : R.pathOr('root',      ['env', 'CORE_DB_USER'],             process),
+        password           : R.pathOr('root',      ['env', 'CORE_DB_PASSWORD'],         process),
+        multipleStatements : true
+      },
+      searchableFields                 : {},
+      DYNAMICALLY_POPULATED_DB_COLUMNS : ['timestamp']
+    }
   },
 
   errors : {
@@ -119,6 +135,8 @@ const config = {
       8001 : 413
     },
 
+    db : R.path(['constants', 'errors'], mysqlUtils),
+
     validation : {
       REQUIRED    : {
         code    : 7000,
@@ -146,7 +164,8 @@ const config = {
   },
 
   api : {
-    COMMON_PRIVATE_FIELDS : ['password']
+    COMMON_PRIVATE_FIELDS : ['password'],
+    RENDER_PRIVATE_FIELDS : ['authorIp']
   }
 };
 
