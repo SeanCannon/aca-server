@@ -24,7 +24,7 @@
     "alien-node-winston-utils": "^0.x.x",
     "atob": "2.1.2",
     "axios": "^0.19.2",
-    "bcrypt": "4.0.1",
+    "bcrypt": "5.0.0",
     "body-parser": "^1.19.0",
     "btoa": "1.2.1",
     "change-case": "^2.3.0",
