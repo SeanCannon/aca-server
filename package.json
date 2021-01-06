@@ -23,7 +23,7 @@
     "alien-node-redis-utils": "^1.4.5",
     "alien-node-winston-utils": "^0.x.x",
     "atob": "2.1.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcrypt": "4.0.1",
     "body-parser": "^1.19.0",
     "btoa": "1.2.1",
