@@ -57,7 +57,7 @@
     "o-validator": "^1.x.x",
     "prettycats": "*",
     "promise-parallel-throttle": "3.3.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "q": "^2.x.x",
     "ramda": "^0.x.x",
     "ramda-adjunct": "^2.11.0",
