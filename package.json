@@ -64,7 +64,7 @@
     "ratelimiter": "~2.1.x",
     "read-chunk": "^1.0.1",
     "read-multiple-files": "^1.1.1",
-    "redis": "^2.8.x",
+    "redis": "^3.1.x",
     "serve-favicon": "~2.1.x",
     "shortid": "^2.2.8",
     "stream-reduce": "^1.0.3",
