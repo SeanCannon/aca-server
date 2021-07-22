@@ -72,7 +72,7 @@
     "uuid": "^3.2.1",
     "vinyl-paths": "^1.0.x",
     "winston": "^2.4.x",
-    "xlsx": "^0.13.2",
+    "xlsx": "^0.17.0",
     "yargs": "*"
   },
   "devDependencies": {
