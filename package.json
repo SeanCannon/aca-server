@@ -52,7 +52,7 @@
     "jasmine-reporters": "^2.2.1",
     "jsonwebtoken": "8.x.x",
     "mime-types": "^2.1.25",
-    "moment": "^2.10.x",
+    "moment": "^2.29.x",
     "node-dir": "^0.1.17",
     "o-validator": "^1.x.x",
     "prettycats": "*",
