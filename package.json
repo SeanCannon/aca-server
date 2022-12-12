@@ -43,7 +43,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-ramda": "^2.5.1",
-    "express": "~4.17.1",
+    "express": "~4.17.3",
     "express-validator": "^2.9.x",
     "goby": "^1.1.x",
     "helmet": "^3.22.0",
